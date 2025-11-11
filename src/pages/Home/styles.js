@@ -4,12 +4,12 @@ export const Background = styled.div`
   background-image: url(${(props) => props.$img});
   height: 100vh;
   background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   &::before {
+    margin-top: 24px;
     content: '';
     position: absolute;
     top: 0;
