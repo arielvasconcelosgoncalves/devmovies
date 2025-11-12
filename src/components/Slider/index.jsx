@@ -1,5 +1,6 @@
-import { Container } from '../../pages/Home/styles';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Container } from './styles';
+import Card from '../Card';
 
 const Slider = ({ info, title }) => {
   return (
@@ -7,9 +8,12 @@ const Slider = ({ info, title }) => {
       <h2>{title}</h2>
       <Swiper grabCursor spaceBetween={10} slidesPerView={'auto'} className="swiper">
         {info.map((item, index) => (
-          <div key={index}>{item.title}</div>
+          <SwiperSlide>
+            <div key={index}>
+              <Card item={item}></Card>
+            </div>
+          </SwiperSlide>
         ))}
-        <SwiperSlide></SwiperSlide>
       </Swiper>
     </Container>
   );
