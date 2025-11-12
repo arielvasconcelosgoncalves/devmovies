@@ -9,12 +9,11 @@ export const Background = styled.div`
   justify-content: center;
   align-items: center;
   &::before {
-    margin-top: 24px;
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -41,7 +40,7 @@ export const Info = styled.div`
 export const Poster = styled.div`
   z-index: 2;
   img {
-    width: 400px;
+    width: 300px;
     border-radius: 30px;
   }
 `;
