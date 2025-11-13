@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
+  position: relative;
   background-image: url(${(props) => props.$img});
   height: 100vh;
   background-position: center;
@@ -16,11 +17,12 @@ export const Background = styled.div`
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
   }
 `;
 
 export const Info = styled.div`
-  z-index: 2;
+  z-index: 3;
   padding: 20px;
   width: 50%;
   h1 {

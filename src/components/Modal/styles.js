@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  padding: 50px;
+  padding: 30px;
   max-width: 1200px;
   iframe {
     border: none;
@@ -19,7 +19,9 @@ export const Background = styled.div`
   width: 100vw;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
