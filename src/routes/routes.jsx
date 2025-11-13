@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Movies from '../pages/Movies';
 import Series from '../pages/Series';
 import DefaultLayout from '../layout/DefaultLayout';
+import Details from '../pages/Details';
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/movies" element={<Movies />}></Route>
         <Route path="/series" element={<Series />}></Route>
+        <Route path="/details/:id" element={<Details />}></Route>
       </Route>
     </Routes>
   );
