@@ -4,6 +4,7 @@ import { Background, Container, ContainerButtons, Info, Poster } from './styles'
 import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { getImages } from '../../utils/getImages';
+import Modal from '../../components/Modal';
 
 const Home = () => {
   const [movie, setMovie] = useState();
@@ -66,21 +67,24 @@ const Home = () => {
 
   return (
     <>
-      <Background $img={getImages(movie?.backdrop_path)}>
-        <Container>
-          <Info>
-            <h1>{movie?.title}</h1>
-            <p>{movie?.overview}</p>
-            <ContainerButtons>
-              <Button red>Assista Agora</Button>
-              <Button>Assista o Trailer</Button>
-            </ContainerButtons>
-          </Info>
-          <Poster>
-            <img src={getImages(movie?.poster_path)} alt="Poster do Filme" />
-          </Poster>
-        </Container>
-      </Background>
+      {movie && (
+        <Background $img={getImages(movie.backdrop_path)}>
+          <Container>
+            <Info>
+              <Modal movieId={movie.id} />
+              <h1>{movie.title}</h1>
+              <p>{movie.overview}</p>
+              <ContainerButtons>
+                <Button red>Assista Agora</Button>
+                <Button>Assista o Trailer</Button>
+              </ContainerButtons>
+            </Info>
+            <Poster>
+              <img src={getImages(movie.poster_path)} alt="Poster do Filme" />
+            </Poster>
+          </Container>
+        </Background>
+      )}
       {topMovies && <Slider info={topMovies} title="Filmes mais bem classificados"></Slider>}
       {popularMovies && <Slider info={popularMovies} title="Filmes Populares"></Slider>}
       {topSeries && <Slider info={topSeries} title="Séries mais bem classificadas"></Slider>}

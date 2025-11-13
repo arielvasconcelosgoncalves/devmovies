@@ -11,6 +11,8 @@ export const Container = styled.div`
   img {
     width: 25%;
   }
+  background-color: ${(props) => (props.$changeBackground ? '#000' : 'transparent')};
+  transition: background-color 0.5s ease-in-out;
 `;
 
 export const Menu = styled.div`
@@ -23,7 +25,24 @@ export const Li = styled.li`
   font-weight: 600;
   cursor: pointer;
   font-size: 28px;
+  position: relative;
   a {
     color: #ffffff;
+  }
+
+  &::after {
+    content: '';
+    height: 3px;
+    width: ${(props) => (props.$isActive ? '100%' : 0)};
+    background-color: #189b20;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%);
+    transition: width 0.5s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 `;
