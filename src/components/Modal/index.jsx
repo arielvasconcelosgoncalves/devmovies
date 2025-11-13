@@ -6,7 +6,10 @@ const Modal = ({ movieId, setShowModal }) => {
   const [trailer, setTrailer] = useState();
 
   useEffect(() => {
-    setTrailer(getTrailer(movieId));
+    const getDataTrailer = async () => {
+      setTrailer(await getTrailer(movieId));
+    };
+    getDataTrailer();
   }, [movieId]);
 
   return (
