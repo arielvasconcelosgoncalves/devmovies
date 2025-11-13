@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Container, Background } from './styles';
 import api from '../../services/api';
 
-const Modal = ({ movieId }) => {
+const Modal = ({ movieId, setShowModal }) => {
   const [trailer, setTrailer] = useState();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Modal = ({ movieId }) => {
   }, [movieId]);
 
   return (
-    <Background>
+    <Background onClick={() => setShowModal(false)}>
       {trailer && (
         <Container>
           <iframe

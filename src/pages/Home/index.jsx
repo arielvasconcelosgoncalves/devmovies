@@ -7,6 +7,7 @@ import { getImages } from '../../utils/getImages';
 import Modal from '../../components/Modal';
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
   const [movie, setMovie] = useState();
   const [topMovies, setTopMovies] = useState();
   const [popularMovies, setPopularMovies] = useState();
@@ -71,12 +72,12 @@ const Home = () => {
         <Background $img={getImages(movie.backdrop_path)}>
           <Container>
             <Info>
-              <Modal movieId={movie.id} />
+              {showModal && <Modal movieId={movie.id} setShowModal={setShowModal} />}
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
               <ContainerButtons>
                 <Button red>Assista Agora</Button>
-                <Button>Assista o Trailer</Button>
+                <Button onClick={() => setShowModal(true)}>Assista o Trailer</Button>
               </ContainerButtons>
             </Info>
             <Poster>
