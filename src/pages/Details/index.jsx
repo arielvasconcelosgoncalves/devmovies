@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container } from './styles';
+import { Background, Container, Cover, Info } from './styles';
 import {
   getMovieById,
   getMovieCredits,
@@ -7,6 +7,7 @@ import {
   getMovieVideo,
 } from '../../services/getData';
 import { useParams } from 'react-router-dom';
+import { getImages } from '../../utils/getImages';
 
 const Details = () => {
   const [movie, setMovie] = useState();
@@ -33,9 +34,22 @@ const Details = () => {
   }, []);
 
   return (
-    <Container>
-      <h1>Details</h1>
-    </Container>
+    <>
+      {movie && (
+        <Background image={getImages(movie.backdrop_path)}>
+          <Container>
+            <Cover>
+              <img src={getImages(movie.poster_path)} alt={movie.title} />
+            </Cover>
+            <Info>
+              <h2>{movie.title}</h2>
+              <div>Generos</div>
+              <p>{movie.overview}</p>
+            </Info>
+          </Container>
+        </Background>
+      )}
+    </>
   );
 };
 
