@@ -43,3 +43,27 @@ export const getTrailer = async (movieId) => {
   } = await api.get(`/movie/${movieId}/videos`);
   return results[0];
 };
+
+export const getMovieCredits = async (movieId) => {
+  const { data } = await api.get(`/movie/${movieId}/credits`);
+  return data;
+};
+
+export const getMovieSimilar = async (movieId) => {
+  const {
+    data: { results },
+  } = await api.get(`/movie/${movieId}/similar`);
+  return results;
+};
+
+export const getMovieById = async (movieId) => {
+  const { data } = await api.get(`/movie/${movieId}`);
+  return data;
+};
+
+export const getMovieVideo = async (movieId) => {
+  const {
+    data: { results },
+  } = await api.get(`/movie/${movieId}/videos`);
+  return results;
+};
