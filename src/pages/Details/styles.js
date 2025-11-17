@@ -16,6 +16,7 @@ export const Container = styled.div`
   height: 100%;
   max-width: 1500px;
   padding-top: 200px;
+  margin-top: -100px;
 `;
 
 export const Background = styled.div`

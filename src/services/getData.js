@@ -45,8 +45,10 @@ export const getTrailer = async (movieId) => {
 };
 
 export const getMovieCredits = async (movieId) => {
-  const { data } = await api.get(`/movie/${movieId}/credits`);
-  return data;
+  const {
+    data: { cast },
+  } = await api.get(`/movie/${movieId}/credits`);
+  return cast;
 };
 
 export const getMovieSimilar = async (movieId) => {

@@ -8,6 +8,8 @@ import {
 } from '../../services/getData';
 import { useParams } from 'react-router-dom';
 import { getImages } from '../../utils/getImages';
+import SpanGenres from '../../components/SpanGenres';
+import Credits from '../../components/Credits';
 
 const Details = () => {
   const [movie, setMovie] = useState();
@@ -21,7 +23,6 @@ const Details = () => {
     const getAllDatas = async () => {
       Promise.all([getMovieById(id), getMovieCredits(id), getMovieSimilar(id), getMovieVideo(id)])
         .then(([movie, credits, similar, videos]) => {
-          console.log([movie, credits, similar, videos]);
           setMovie(movie);
           setMovieCredits(credits);
           setMovieSimilar(similar);
@@ -43,8 +44,11 @@ const Details = () => {
             </Cover>
             <Info>
               <h2>{movie.title}</h2>
-              <div>Generos</div>
+              <SpanGenres genres={movie.genres} />
               <p>{movie.overview}</p>
+              <div>
+                <Credits credits={movieCredits} />
+              </div>
             </Info>
           </Container>
         </Background>
