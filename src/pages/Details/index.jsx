@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Background, Container, Cover, Info } from './styles';
+import { Background, Container, ContainerMovies, Cover, Info } from './styles';
 import {
   getMovieById,
   getMovieCredits,
@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import { getImages } from '../../utils/getImages';
 import SpanGenres from '../../components/SpanGenres';
 import Credits from '../../components/Credits';
+import Slider from '../../components/Slider';
 
 const Details = () => {
   const [movie, setMovie] = useState();
@@ -37,7 +38,8 @@ const Details = () => {
   return (
     <>
       {movie && (
-        <Background image={getImages(movie.backdrop_path)}>
+        <>
+          <Background image={getImages(movie.backdrop_path)} />
           <Container>
             <Cover>
               <img src={getImages(movie.poster_path)} alt={movie.title} />
@@ -51,8 +53,23 @@ const Details = () => {
               </div>
             </Info>
           </Container>
-        </Background>
+        </>
       )}
+      <ContainerMovies>
+        {movieVideos &&
+          movieVideos.map((video) => (
+            <div key={video.id}>
+              <h4>{video.name}</h4>
+              <iframe
+                src={`https://www.youtube.com/embed/${video.key}`}
+                title="Youtube Video Player"
+                height="500px"
+                width="100%"
+              ></iframe>
+            </div>
+          ))}
+      </ContainerMovies>
+      {movieSimilar && <Slider info={movieSimilar} title="Filmes Similares"></Slider>}
     </>
   );
 };
