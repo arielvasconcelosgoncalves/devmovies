@@ -24,17 +24,17 @@ Esse projeto também foi inspirado em atividades práticas do curso **DevClub**,
 
 ## 📡 Funcionalidades
 
-✔ Exibição das séries mais populares do momento
-✔ Listagem das séries mais bem avaliadas
-✔ Interface responsiva para diferentes dispositivos
-✔ Consumo de API com dados atualizados
-✔ Layout limpo e organizado
+✔ Exibição das séries mais populares do momento<br>
+✔ Listagem das séries mais bem avaliadas<br>
+✔ Interface responsiva para diferentes dispositivos<br>
+✔ Consumo de API com dados atualizados<br>
+✔ Layout limpo e organizado<br>
 
 ---
 
 ## 📷 Demonstração
 
-
+![Home do DevMovies](./src/assets/devmoviesimage.png)
 
 ---
 
