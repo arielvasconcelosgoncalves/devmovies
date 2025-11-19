@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Container, Background } from './styles';
-import { getTrailer } from '../../services/getData';
+import { getSeriesTrailer } from '../../services/getData';
 
 const Modal = ({ movieId, setShowModal }) => {
   const [trailer, setTrailer] = useState();
 
   useEffect(() => {
     const getDataTrailer = async () => {
-      setTrailer(await getTrailer(movieId));
+      setTrailer(await getSeriesTrailer(movieId));
     };
     getDataTrailer();
   }, [movieId]);
