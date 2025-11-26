@@ -4,10 +4,10 @@ import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { getImages } from '../../utils/getImages';
 import Modal from '../../components/Modal';
-import { useNavigate } from 'react-router-dom';
-import { getPopularSeries, getTopSeries, getSeries } from '../../services/getData';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getPopularSeries, getSeriesById, getTopSeries } from '../../services/getData';
 
-const Series = () => {
+const Tv = () => {
   const [showModal, setShowModal] = useState(false);
   const [series, setSeries] = useState();
   const [topSeries, setTopSeries] = useState();
@@ -15,18 +15,20 @@ const Series = () => {
 
   const navigate = useNavigate();
 
+  const { id } = useParams();
+
   useEffect(() => {
     const getAllDatas = async () => {
-      Promise.all([getPopularSeries(), getTopSeries(), getSeries()])
-        .then(([popularSeries, topSeries, movie]) => {
+      Promise.all([getPopularSeries(), getTopSeries(), getSeriesById(id)])
+        .then(([popularSeries, topSeries, series]) => {
           setPopularSeries(popularSeries);
           setTopSeries(topSeries);
-          setSeries(movie);
+          setSeries(series);
         })
         .catch((error) => console.error(error));
     };
     getAllDatas();
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -58,4 +60,4 @@ const Series = () => {
   );
 };
 
-export default Series;
+export default Tv;

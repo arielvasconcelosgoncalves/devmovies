@@ -9,6 +9,7 @@ export const Container = styled.div`
     border-radius: 30px;
     width: 300px;
     height: 450px;
+    cursor: pointer;
   }
   h3 {
     color: #ffffff;

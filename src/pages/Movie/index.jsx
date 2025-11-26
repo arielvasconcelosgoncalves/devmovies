@@ -4,10 +4,10 @@ import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { getImages } from '../../utils/getImages';
 import Modal from '../../components/Modal';
-import { useNavigate } from 'react-router-dom';
-import { getMovies, getPopularMovies, getTopMovies } from '../../services/getData';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getMovieById, getPopularMovies, getTopMovies } from '../../services/getData';
 
-const Movies = () => {
+const Movie = () => {
   const [showModal, setShowModal] = useState(false);
   const [movie, setMovie] = useState();
   const [topMovies, setTopMovies] = useState();
@@ -15,9 +15,11 @@ const Movies = () => {
 
   const navigate = useNavigate();
 
+  const { id } = useParams();
+
   useEffect(() => {
     const getAllDatas = async () => {
-      Promise.all([getPopularMovies(), getTopMovies(), getMovies()])
+      Promise.all([getPopularMovies(), getTopMovies(), getMovieById(id)])
         .then(([popularMovies, topMovies, movie]) => {
           setPopularMovies(popularMovies);
           setTopMovies(topMovies);
@@ -26,7 +28,7 @@ const Movies = () => {
         .catch((error) => console.error(error));
     };
     getAllDatas();
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -60,4 +62,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Movie;

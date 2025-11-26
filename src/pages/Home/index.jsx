@@ -70,10 +70,16 @@ const Home = () => {
           </Container>
         </Background>
       )}
-      {topMovies && <Slider info={topMovies} title="Filmes mais bem classificados"></Slider>}
-      {popularMovies && <Slider info={popularMovies} title="Filmes Populares"></Slider>}
-      {topSeries && <Slider info={topSeries} title="Séries mais bem classificadas"></Slider>}
-      {popularSeries && <Slider info={popularSeries} title="Séries Populares"></Slider>}
+      {topMovies && (
+        <Slider info={topMovies} title="Filmes mais bem classificados" media="movie"></Slider>
+      )}
+      {popularMovies && (
+        <Slider info={popularMovies} title="Filmes Populares" media="movie"></Slider>
+      )}
+      {topSeries && (
+        <Slider info={topSeries} title="Séries mais bem classificadas" media="tv"></Slider>
+      )}
+      {popularSeries && <Slider info={popularSeries} title="Séries Populares" media="tv"></Slider>}
       {topPeople && <Slider info={topPeople} title="Artistas mais populares"></Slider>}
     </>
   );

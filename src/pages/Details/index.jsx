@@ -69,7 +69,7 @@ const Details = () => {
             </div>
           ))}
       </ContainerMovies>
-      {movieSimilar && <Slider info={movieSimilar} title="Filmes Similares"></Slider>}
+      {movieSimilar && <Slider info={movieSimilar} title="Filmes Similares" media="movie"></Slider>}
     </>
   );
 };

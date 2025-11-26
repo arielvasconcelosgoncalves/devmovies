@@ -4,7 +4,6 @@ export const getMovies = async () => {
   const {
     data: { results },
   } = await api.get('/movie/popular');
-  console.log(results[0]);
   return results[0];
 };
 
@@ -12,6 +11,7 @@ export const getTopMovies = async () => {
   const {
     data: { results },
   } = await api.get('/movie/top_rated');
+  console.log(results);
   return results;
 };
 
@@ -19,6 +19,7 @@ export const getPopularMovies = async () => {
   const {
     data: { results },
   } = await api.get('/movie/popular');
+  console.log(results);
   return results;
 };
 
@@ -26,7 +27,6 @@ export const getTrailer = async (movieId) => {
   const {
     data: { results },
   } = await api.get(`/movie/${movieId}/videos`);
-  console.log(results[0]);
   return results[0];
 };
 
@@ -62,7 +62,6 @@ export const getSeries = async () => {
   const {
     data: { results },
   } = await api.get('/tv/popular');
-  console.log(results[0]);
   return results[0];
 };
 
@@ -83,7 +82,6 @@ export const getSeriesTrailer = async (movieId) => {
   const {
     data: { results },
   } = await api.get(`/tv/${movieId}/videos`);
-  console.log(results[0]);
   return results[0];
 };
 
@@ -91,7 +89,6 @@ export const getSeriesCredits = async (serieId) => {
   const {
     data: { cast },
   } = await api.get(`/tv/${serieId}/credits`);
-  console.log(cast);
   return cast;
 };
 
@@ -99,13 +96,11 @@ export const getSeriesSimilar = async (serieId) => {
   const {
     data: { results },
   } = await api.get(`/tv/${serieId}/similar`);
-  console.log(results);
   return results;
 };
 
 export const getSeriesById = async (serieId) => {
   const { data } = await api.get(`/tv/${serieId}`);
-  console.log(data);
   return data;
 };
 
@@ -113,7 +108,6 @@ export const getSeriesVideo = async (movieId) => {
   const {
     data: { results },
   } = await api.get(`/tv/${movieId}/videos`);
-  console.log(results);
   return results;
 };
 
@@ -123,6 +117,5 @@ export const getTopPeople = async () => {
   const {
     data: { results },
   } = await api.get('/person/popular');
-  console.log(results);
   return results;
 };

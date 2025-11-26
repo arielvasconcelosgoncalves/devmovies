@@ -74,7 +74,7 @@ const SeriesDetails = () => {
             </div>
           ))}
       </ContainerMovies>
-      {seriesSimilar && <Slider info={seriesSimilar} title="Filmes Similares"></Slider>}
+      {seriesSimilar && <Slider info={seriesSimilar} title="Filmes Similares" media="tv"></Slider>}
     </>
   );
 };
