@@ -56,6 +56,11 @@ export const getMovieVideo = async (movieId) => {
   return results;
 };
 
+export const searchMovies = async (query) => {
+  const response = await api.get(`/search/movie?query=${query}`);
+  return response.data.results;
+};
+
 //Series
 
 export const getSeries = async () => {

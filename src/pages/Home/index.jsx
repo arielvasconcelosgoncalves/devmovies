@@ -80,7 +80,9 @@ const Home = () => {
         <Slider info={topSeries} title="Séries mais bem classificadas" media="tv"></Slider>
       )}
       {popularSeries && <Slider info={popularSeries} title="Séries Populares" media="tv"></Slider>}
-      {topPeople && <Slider info={topPeople} title="Artistas mais populares"></Slider>}
+      {topPeople && (
+        <Slider info={topPeople} title="Artistas mais populares" media={false}></Slider>
+      )}
     </>
   );
 };

@@ -46,3 +46,16 @@ export const Li = styled.li`
     width: 100%;
   }
 `;
+
+export const Search = styled.div`
+  width: 20vw;
+  height: 5vh;
+  input {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: none;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+`;

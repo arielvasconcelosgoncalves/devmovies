@@ -7,6 +7,7 @@ import Details from '../pages/Details';
 import SeriesDetails from '../pages/SeriesDetails';
 import Movie from '../pages/Movie';
 import Tv from '../pages/Tv';
+import SearchPage from '../pages/Search';
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/series-details/:id" element={<SeriesDetails />}></Route>
         <Route path="/movie/:id" element={<Movie />}></Route>
         <Route path="/tv/:id" element={<Tv />}></Route>
+        <Route path="/search" element={<SearchPage />} />
       </Route>
     </Routes>
   );

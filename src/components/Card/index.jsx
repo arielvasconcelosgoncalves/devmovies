@@ -7,11 +7,22 @@ const Card = ({ item, media }) => {
 
   return (
     <Container>
-      <img
-        src={getImages(item.poster_path || item.profile_path)}
-        onClick={() => navigate(`/${media}/${item.id}`)}
-      />
-      <h3>{item.title || item.name}</h3>
+      {media ? (
+        <>
+          {item.poster_path}
+          <img
+            src={getImages(item.poster_path || item.profile_path)}
+            onClick={() => navigate(`/${media}/${item.id}`)}
+          />
+          <h3>{item.title || item.name}</h3>
+        </>
+      ) : (
+        <>
+          {item.poster_path}
+          <img src={getImages(item.poster_path || item.profile_path)} />
+          <h3>{item.title || item.name}</h3>
+        </>
+      )}
     </Container>
   );
 };
