@@ -1,17 +1,28 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
-import { Container, Menu, Li, Search } from './styles';
-import { useState } from 'react';
+import { Container, Menu, Li, SearchDiv } from './styles';
+import { createContext, useState } from 'react';
+import { Search } from 'lucide-react';
+import { useSearch } from '../../context/SearchContext';
+
+const SearchContext = createContext();
 
 const Header = () => {
   const [changeBackground, setChangeBackground] = useState(false);
   const [search, setSearch] = useState('');
-  const { pathname } = useLocation();
+  const { isActive, setIsActive } = useSearch();
 
   const navigate = useNavigate();
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && search.trim().length > 0) {
+      navigate(`/search?q=${search}`);
+      setSearch('');
+    }
+  };
+
+  const handleClick = () => {
+    if (search.trim().length > 0) {
       navigate(`/search?q=${search}`);
       setSearch('');
     }
@@ -28,7 +39,8 @@ const Header = () => {
   return (
     <Container $changeBackground={changeBackground}>
       <img src={Logo} alt="Logo do DevMovies" />
-      <Search>
+      <SearchDiv>
+        <Search className="search-icon" onClick={handleClick} />
         <input
           type="text"
           placeholder="Pesquisar..."
@@ -36,20 +48,19 @@ const Header = () => {
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-      </Search>
+      </SearchDiv>
       <Menu>
-        <Li $isActive={pathname === '/'}>
+        <Li $isActive={isActive[0]} onClick={() => setIsActive([true, false, false])}>
           <Link to="/">Home</Link>
         </Li>
-        <Li $isActive={pathname.includes('movies')}>
+        <Li $isActive={isActive[1]} onClick={() => setIsActive([false, true, false])}>
           <Link to="/movies">Filmes</Link>
         </Li>
-        <Li $isActive={pathname.includes('series')}>
+        <Li $isActive={isActive[2]} onClick={() => setIsActive([false, false, true])}>
           <Link to="/series">Séries</Link>
         </Li>
       </Menu>
     </Container>
   );
 };
-
 export default Header;

@@ -10,8 +10,9 @@ export const Container = styled.div`
     margin-bottom: 30px;
   }
 
-  p {
-    color: #ccc;
+  h2 {
+    color: #fff;
+    margin: 20px 0;
   }
 
   .grid {

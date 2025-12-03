@@ -47,9 +47,12 @@ export const Li = styled.li`
   }
 `;
 
-export const Search = styled.div`
+export const SearchDiv = styled.div`
   width: 20vw;
   height: 5vh;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
   input {
     width: 100%;
     height: 100%;
@@ -57,5 +60,10 @@ export const Search = styled.div`
     border: none;
     padding: 0 20px;
     font-size: 16px;
+  }
+  .search-icon {
+    position: absolute;
+    margin-right: 15px;
+    cursor: pointer;
   }
 `;

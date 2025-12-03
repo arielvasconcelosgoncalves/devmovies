@@ -116,6 +116,11 @@ export const getSeriesVideo = async (movieId) => {
   return results;
 };
 
+export const searchSeries = async (query) => {
+  const response = await api.get(`/search/tv?query=${query}`);
+  return response.data.results;
+};
+
 //People
 
 export const getTopPeople = async () => {

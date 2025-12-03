@@ -9,7 +9,6 @@ const Card = ({ item, media }) => {
     <Container>
       {media ? (
         <>
-          {item.poster_path}
           <img
             src={getImages(item.poster_path || item.profile_path)}
             onClick={() => navigate(`/${media}/${item.id}`)}
@@ -18,7 +17,6 @@ const Card = ({ item, media }) => {
         </>
       ) : (
         <>
-          {item.poster_path}
           <img src={getImages(item.poster_path || item.profile_path)} />
           <h3>{item.title || item.name}</h3>
         </>
