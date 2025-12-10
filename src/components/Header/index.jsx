@@ -1,11 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import { Container, Menu, Li, SearchDiv } from './styles';
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import { Search } from 'lucide-react';
 import { useSearch } from '../../context/SearchContext';
-
-const SearchContext = createContext();
 
 const Header = () => {
   const [changeBackground, setChangeBackground] = useState(false);
@@ -50,13 +48,25 @@ const Header = () => {
         />
       </SearchDiv>
       <Menu>
-        <Li $isActive={isActive[0]} onClick={() => setIsActive([true, false, false])}>
+        <Li
+          $isActive={isActive[0]}
+          onClick={() => setIsActive([true, false, false])}
+          className="home"
+        >
           <Link to="/">Home</Link>
         </Li>
-        <Li $isActive={isActive[1]} onClick={() => setIsActive([false, true, false])}>
+        <Li
+          $isActive={isActive[1]}
+          onClick={() => setIsActive([false, true, false])}
+          className="filmes"
+        >
           <Link to="/movies">Filmes</Link>
         </Li>
-        <Li $isActive={isActive[2]} onClick={() => setIsActive([false, false, true])}>
+        <Li
+          $isActive={isActive[2]}
+          onClick={() => setIsActive([false, false, true])}
+          className="series"
+        >
           <Link to="/series">Séries</Link>
         </Li>
       </Menu>

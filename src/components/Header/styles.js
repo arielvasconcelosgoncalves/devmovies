@@ -13,12 +13,25 @@ export const Container = styled.div`
   }
   background-color: ${(props) => (props.$changeBackground ? '#000' : 'transparent')};
   transition: background-color 0.5s ease-in-out;
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* duas colunas na primeira linha */
+    justify-items: center;
+    gap: 20px;
+    img {
+      width: 70%;
+      grid-column: 1;
+    }
+  }
 `;
 
 export const Menu = styled.div`
   display: flex;
   list-style: none;
   gap: 50px;
+  @media (max-width: 768px) {
+    grid-column: 1/3;
+  }
 `;
 
 export const Li = styled.li`
@@ -45,6 +58,10 @@ export const Li = styled.li`
   &:hover::after {
     width: 100%;
   }
+
+  @media (max-width: 900px) {
+    font-size: 20px;
+  }
 `;
 
 export const SearchDiv = styled.div`
@@ -65,5 +82,9 @@ export const SearchDiv = styled.div`
     position: absolute;
     margin-right: 15px;
     cursor: pointer;
+  }
+  @media (max-width: 768px) {
+    grid-column: 2;
+    width: 30vw;
   }
 `;

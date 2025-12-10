@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Container, Background } from './styles';
-import { getSeriesTrailer } from '../../services/getData';
+import { getSeriesTrailer, getTrailer } from '../../services/getData';
+import { useSearch } from '../../context/SearchContext';
 
 const Modal = ({ movieId, setShowModal }) => {
   const [trailer, setTrailer] = useState();
+  const { isActive } = useSearch();
+
+  const type = isActive[0] || isActive[1] ? 'movie' : 'tv';
 
   useEffect(() => {
     const getDataTrailer = async () => {
-      setTrailer(await getSeriesTrailer(movieId));
+      setTrailer(await (type === 'movie' ? getTrailer(movieId) : getSeriesTrailer(movieId)));
     };
     getDataTrailer();
   }, [movieId]);
