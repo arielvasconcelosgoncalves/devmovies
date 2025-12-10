@@ -12,7 +12,7 @@ export const Container = styled.div`
     color: #ffffff;
   }
   img {
-    height: 200px;
+    height: 21vh;
   }
 `;
 

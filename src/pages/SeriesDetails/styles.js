@@ -44,6 +44,11 @@ export const Container = styled.div`
   max-width: 1500px;
   position: relative;
   top: -100px;
+  @media (max-width: 1230px) {
+    flex-direction: column;
+    align-items: center;
+    top: -300px;
+  }
 `;
 
 export const Cover = styled.div`
@@ -58,11 +63,18 @@ export const Cover = styled.div`
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     animation: ${scale} 0.5s ease-in-out;
   }
+
+  @media (max-width: 1230px) {
+    img {
+      height: 250px;
+      width: auto;
+    }
+  }
 `;
 
 export const Info = styled.div`
   padding: 20px;
-  width: 50%;
+  width: 50vw;
   z-index: 98;
   display: flex;
   align-items: flex-start;
@@ -77,6 +89,10 @@ export const Info = styled.div`
     color: #fff;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  @media (max-width: 1230px) {
+    align-items: center;
   }
 `;
 
